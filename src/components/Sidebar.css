@@ -18,6 +18,11 @@
     text-align: center;
 }
 
+.sidebar__info > img{
+    height: 100px;
+    border-radius: 999px;
+    object-fit: contain;
+}
 
 .sidebar__info>h2{
     margin-top: 5px;

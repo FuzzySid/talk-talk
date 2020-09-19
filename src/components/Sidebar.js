@@ -4,9 +4,11 @@ import { SidebarOption } from './SidebarOption';
 import {db} from './../firebase.config';
 import { AddChannel } from './AddChannel';
 import Avatar from 'react-avatar';
+import { useStateValue } from '../StateProvider';
 
 
 export const Sidebar = () => {
+    const [{user},dispatch]=useStateValue()
     const [channels,setChannels]=useState([])
     useEffect(()=>{
         db.collection('Rooms').onSnapshot(snapshot=>{
@@ -20,9 +22,9 @@ export const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar__header">
                 <div className="sidebar__info">
-                    <Avatar name="Wim Mostmans" round size="100" textSizeRatio={1.75} />
-                    <h2>Fuzzy Sid</h2>
-                    <h3>Siddhant Varma</h3>
+                    <img src={user && user.photoURL}/>
+                    <h2>{user && user.displayName}</h2>
+                    <h3>{user && user.email}</h3>
                 </div>
             </div>
             <AddChannel/>

@@ -4,9 +4,11 @@ import { Sidebar } from './components/Sidebar';
 import { Routes } from './routes';
 import {BrowserRouter as Router} from 'react-router-dom';
 import { Login } from './pages/Login';
+import { useStateValue } from './StateProvider';
 
 function App() {
-  const [user,setUser]=useState(null)
+  const [{user},dispatch]=useStateValue()
+  // const [user,setUser]=useState(null)
   return (
     <div className="app">
       {

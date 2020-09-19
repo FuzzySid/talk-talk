@@ -7,12 +7,19 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import {db} from './../firebase.config';
 
 export const AddChannel = () => {
     const [showModal,setShowModal]=useState(false)
+    const [channel,setChannel]=useState('')
     const addChannel=()=>{
-
+        if(channel){
+            db.collection('Rooms').add({
+                name:channel
+            })
+            setChannel('')
+            handleClose()
+        }
     }
     const handleClose=()=>setShowModal(false);
 
@@ -26,6 +33,7 @@ export const AddChannel = () => {
                     This will create a new channel for talking to people. Enter the name of channel down below
                 </DialogContentText>
                 <TextField
+                    onChange={(e)=>setChannel(e.target.value)}
                     autoFocus
                     margin="dense"
                     id="name"
@@ -38,7 +46,7 @@ export const AddChannel = () => {
                     <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={addChannel} color="primary">
                         Create
                     </Button>
                     </DialogActions>

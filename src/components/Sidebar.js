@@ -29,7 +29,7 @@ export const Sidebar = () => {
             {
                 channels.map((channel,ind)=>{
                     return(
-                        <SidebarOption title={channel.name} id={channel.id} roomId={ind} key={channel.id}/>
+                        <SidebarOption title={channel.name} id={channel.id} roomId={channel.id} key={channel.id}/>
                     )
                 })
             }

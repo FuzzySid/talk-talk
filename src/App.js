@@ -1,19 +1,24 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './App.css';
 import { Sidebar } from './components/Sidebar';
 import { Routes } from './routes';
 import {BrowserRouter as Router} from 'react-router-dom';
-import history from './history';
+import { Login } from './pages/Login';
 
 function App() {
+  const [user,setUser]=useState(null)
   return (
     <div className="app">
-   
-      
-      <Router>
+      {
+        !user ? (<Login/>)
+        :
+        <Router>
           <Sidebar/>
           <Routes/>
       </Router>
+      }
+      
+
     </div>
   );
 }

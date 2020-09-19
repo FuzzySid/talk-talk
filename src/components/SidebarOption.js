@@ -10,10 +10,8 @@ export const SidebarOption = ({Icon,title,roomId}) => {
             { Icon ? 
                 <h3>{title}</h3>
                 :
-                <h3 className="sidebarOption__channel"  onClick={()=>{history.push(`/room/${title}`)}}>
-                    {/* <Link to={"/room/"+title}> */}
+                <h3 className="sidebarOption__channel"  onClick={()=>{history.push(`/room/${roomId}`)}}>
                         <span className="sidebarOption__hash">#</span>
-                    {/* </Link> */}
                     {title}
                 </h3>
             }

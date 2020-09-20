@@ -1,0 +1,54 @@
+.chatInput{
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    width: 77.9%;
+    background: #222222;
+    border-radius: 3px;
+    padding: 10px 20px;
+    z-index: 1;
+}
+
+.chatInput > form{
+    display: flex;
+}
+
+.chatInput > form > input{
+    width: 65vw;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: #222222;
+    color: #fff;
+
+}
+
+.chatInput > form > button {
+    text-transform: inherit;
+    font-size: 12px;
+    color: #F50057;
+}
+
+.emoji-mart-preview {
+    position: relative;
+    height: 70px;
+    display: none !important;
+}
+
+.emoji-mart{
+    width: 77.9vw !important;
+    position: absolute;
+    bottom: 50px !important;
+    right: 0px !important;
+
+}
+
+.emoji-mart-scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 60px !important;
+    padding: 0 6px 6px 6px;
+    will-change: transform;
+}

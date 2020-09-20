@@ -1,0 +1,10 @@
+.circularLoader{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    justify-content: center;
+}
+
+.circularLoader__message{
+    margin-left: 10px;
+}

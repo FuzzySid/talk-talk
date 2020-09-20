@@ -5,17 +5,21 @@ import {db} from './../firebase.config';
 import { AddChannel } from './AddChannel';
 import Avatar from 'react-avatar';
 import { useStateValue } from '../StateProvider';
+import { CircularLoader } from './ui/CircularLoader';
 
 
 export const Sidebar = () => {
     const [{user},dispatch]=useStateValue()
     const [channels,setChannels]=useState([])
+    const [showLoader,setShowLoader]=useState(false)
     useEffect(()=>{
+        setShowLoader(true)
         db.collection('Rooms').onSnapshot(snapshot=>{
             setChannels(snapshot.docs.map(doc=>({
                 id:doc.id,
                 name:doc.data().name
             })))
+        setShowLoader(false)
         })
     },[])
     return (
@@ -28,6 +32,9 @@ export const Sidebar = () => {
                 </div>
             </div>
             <AddChannel/>
+            {
+                showLoader && <CircularLoader message={"Getting your channels..."} />
+            }
             {
                 channels.map((channel,ind)=>{
                     return(

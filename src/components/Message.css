@@ -1,22 +1,41 @@
 .message{
     display: flex;
-    align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
+}
+
+.message__contentContainer{
+    background: gray;
+    padding: 2px 5px;
+    border-radius: 5px;
+    width: auto;
 }
 
 .message>img{
-    height: 50px;
-    width: 50px;
+    height: 35px;
     object-fit: contain;
     border-radius: 999px;
+}
+
+.message__infoHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .message__timestamp{
     color: gray;
     font-weight: 300;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .message__info{
-    padding: 10px;
+    padding: 5px 10px;
+}
+
+.message__user{
+    font-size: 16px;
+}
+
+.message__content{
+    font-size: 14px;
 }

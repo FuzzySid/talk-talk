@@ -3,6 +3,7 @@ import './Chat.css';
 import {useParams} from 'react-router-dom';
 import {db} from './../firebase.config';
 import { Message } from './Message';
+import { ChatInput } from './ChatInput';
 
 export const Chat = () => {
     const {roomId}=useParams();
@@ -11,19 +12,29 @@ export const Chat = () => {
     useEffect(()=>{
         if(roomId){
             db.collection('Rooms').doc(roomId).onSnapshot((snapshot)=>{
-                console.log(snapshot)
+                //console.log(snapshot)
                 setRoomDetails(snapshot.data())
             })
             db.collection('Rooms').doc(roomId).collection('messages').orderBy('timestamp','asc')
                 .onSnapshot((snapshot)=>{
+                    console.log(snapshot.docs[0])
+                    // let temp=[];
+                    // temp=snapshot.docs.map(doc=>{doc.data(),doc.id})
                     setRoomMessages(
-                        snapshot.docs.map(doc=>doc.data())
+                        snapshot.docs.map(doc=>{
+                            return(
+                                {
+                                    ...doc.data(),
+                                    id: doc.id
+                                }
+                            )
+                        })
                     )
                 })
         }
     },[roomId])
-    console.log(roomMessages)
-
+    console.log('rm: ',roomMessages)
+    //console.log(roomDetails)
     return (
         <div className="chat">
             {/* You are now in the {roomId} room */}
@@ -40,11 +51,15 @@ export const Chat = () => {
             </div>
             <div className="chat__messages">
                 {
-                    roomMessages && roomMessages.map(({message,timestamp,user,userimage})=>{
-                        return <Message message={message} timestamp={timestamp} user={user} userImage={userimage} />
+                    roomMessages && roomMessages.map(({id,message,timestamp,user,userimage})=>{
+                        return <Message key={id} message={message} timestamp={timestamp} user={user} userImage={userimage} />
                     })
                 }
             </div>
+            {
+                roomDetails &&  <ChatInput channelName={roomDetails.name} channelId={roomId}/> 
+
+            }
         </div>
     )
 }

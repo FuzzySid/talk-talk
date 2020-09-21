@@ -9,7 +9,7 @@
     border-radius: 3px;
     padding: 10px 20px;
     z-index: 1;
-    margin-left: 2.5px;
+    margin-left: 25px;
 }
 
 .chatInput > form{
@@ -40,7 +40,7 @@
 }
 
 .emoji-mart{
-    width: 77.9vw !important;
+    width: 100% !important;
     position: absolute;
     bottom: 53px !important;
     right: 0px !important;

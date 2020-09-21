@@ -28,7 +28,7 @@ export const AddChannel = () => {
 
     return (
         <div className="addChannel">
-            { showToast && <Toast setShowToast={setShowToast} message={`Created nsew channel`} /> }
+            { showToast && <Toast setShowToast={setShowToast} message={`Created new channel`} /> }
             <Button onClick={()=>setShowModal(true)} variant="contained"  color="secondary"><strong>Add Channel +</strong></Button>
             <Dialog  onClose={handleClose} open={showModal} aria-labelledby="simple-dialog-title" >
             <DialogTitle id="simple-dialog-title">Add a New Channel</DialogTitle>

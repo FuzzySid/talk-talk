@@ -7,9 +7,32 @@
     margin: 20px 0px;
 }
 
+.MuiPaper-elevation24 {
+    box-shadow: 0px 11px 15px 17px rgba(0,0,0,0.2), 
+                0px 24px 38px 5px rgba(0,0,0,0.14), 
+                0px 9px 46px 17px rgba(0,0,0,0.12) !important;
+}
 
 .MuiPaper-root {
     color: rgba(0, 0, 0, 0.87);
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     background-color: #e1e1e1;
+}
+
+.MuiDialog-paperScrollPaper {
+    background: #212121!important;
+    color: #ffff !important;
+}
+
+#simple-dialog-title, #dialog-content{
+    color: #ffff !important;
+}
+
+
+.MuiInput-underline:before {
+    border-bottom: 1px solid #F50057 !important;
+}
+
+.MuiFormLabel-root {
+    color: #F50057 !important;   
 }

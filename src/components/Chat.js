@@ -5,6 +5,7 @@ import {db} from './../firebase.config';
 import { Message } from './Message';
 import { ChatInput } from './ChatInput';
 import { LinearLoader } from './ui/LinearLoader';
+import logo from './../Talk-Talk.png'
 
 export const Chat = () => {
     const {roomId}=useParams();
@@ -48,10 +49,11 @@ export const Chat = () => {
                     <div className="chat__headerLeft">
                         <div className="chat__channelName">
                             <strong># {roomDetails && roomDetails.name}</strong>
-
                         </div>
                     </div>
-
+                    <div className="chat__headerRight">
+                        <img src={logo} className="chat__headerRight__logo" alt=""/>
+                    </div>
                     </div>
                     <div className="chat__messages">
                         {

@@ -6,7 +6,8 @@ import { AddChannel } from './AddChannel';
 import Avatar from 'react-avatar';
 import { useStateValue } from '../StateProvider';
 import { CircularLoader } from './ui/CircularLoader';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { actionTypes } from '../reducer';
 
 export const Sidebar = () => {
     const [{user},dispatch]=useStateValue()
@@ -22,6 +23,12 @@ export const Sidebar = () => {
         setShowLoader(false)
         })
     },[])
+    const logout=()=>{
+        console.log('inside logout');
+        dispatch({
+            type:actionTypes.LOG_OUT
+        })
+    }
     return (
         <div className="sidebar">
             <div className="sidebar__header">
@@ -35,14 +42,22 @@ export const Sidebar = () => {
             {
                 showLoader && <CircularLoader message={"Getting your channels..."} />
             }
-            {
+            <h6 style={{paddingLeft:'15px'}}>All Channels </h6>
+            <div className="sidebar__channels">
+               
+                {
+
                 channels.map((channel,ind)=>{
                     return(
                         <SidebarOption title={channel.name} id={channel.id} roomId={channel.id} key={channel.id}/>
                     )
                 })
-            }
-
+                }
+            </div>
+            <hr/>
+            <div className="sidebar__footer">
+                <span onClick={logout}>Logout&nbsp;<ExitToAppIcon/></span>
+            </div>
            
         </div>
     )

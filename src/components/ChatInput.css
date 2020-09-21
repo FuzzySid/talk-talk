@@ -4,15 +4,17 @@
     align-items: center;
     position: fixed;
     bottom: 0px;
-    width: 77.9%;
+    width: auto;
     background: #222222;
     border-radius: 3px;
     padding: 10px 20px;
     z-index: 1;
+    margin-left: 2.5px;
 }
 
 .chatInput > form{
     display: flex;
+    align-items: center;
 }
 
 .chatInput > form > input{
@@ -22,7 +24,7 @@
     font-size: 14px;
     background: #222222;
     color: #fff;
-
+    margin: 0px 15px;
 }
 
 .chatInput > form > button {
@@ -40,7 +42,7 @@
 .emoji-mart{
     width: 77.9vw !important;
     position: absolute;
-    bottom: 50px !important;
+    bottom: 53px !important;
     right: 0px !important;
 
 }

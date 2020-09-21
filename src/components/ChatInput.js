@@ -6,14 +6,13 @@ import { useStateValue } from '../StateProvider';
 import firebase from 'firebase';
 import { Picker } from 'emoji-mart'
 import "emoji-mart/css/emoji-mart.css";
-
-
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 
 
 export const ChatInput = ({channelName,channelId}) => {
     const [message,setMessage]=useState('')
     const [{user},dispatch]=useStateValue()
-
+    const [showEmojiPicker,setShowEmojiPicker]=useState(false)
     const addEmoji = e => {
         let emoji = e.native;
         setMessage(
@@ -41,10 +40,11 @@ export const ChatInput = ({channelName,channelId}) => {
 
    return (
         <div className="chatInput">
-            <form>     
-                 <Picker theme="dark" style={{ position: 'absolute', bottom: '20px', right: '20px' }} onSelect={addEmoji} />
+            <form>
+                <InsertEmoticonIcon style={{cursor:"pointer"}} onClick={()=>setShowEmojiPicker(!showEmojiPicker)}/>  
+                { showEmojiPicker &&   <Picker theme="dark" style={{ position: 'absolute', bottom: '20px', right: '20px' }} onSelect={addEmoji} />}   
                 <input  value={message} onChange={(e)=>{setMessage(e.target.value)}} placeholder={`Message #${channelName} (You can also hit enter to send a message)`} type="text" name="" id=""/>
-                <Button type="submit" variant="outlined" color="secondary" onClick={sendMessage}>Send Message</Button>
+                <Button type="submit" variant="outlined" color="secondary" onClick={sendMessage}>Send</Button>
             </form>
         </div>
     )

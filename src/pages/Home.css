@@ -1,0 +1,28 @@
+.home{
+    flex: 0.7;
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding-bottom: 150px;
+    background-color: #3B3B3B;
+    align-items: center;
+    color: #fff;
+}
+
+.home__container{
+    max-width: 450px;
+    height: 400px;
+    /* background: gray; */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.home__logo{
+    height: 100px;
+    object-fit: contain;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    float: right;
+}

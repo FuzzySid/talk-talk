@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import { Chat } from './components/Chat';
+import { Home } from './pages/Home';
 
 export const Routes = () => {
     return (
@@ -11,7 +12,7 @@ export const Routes = () => {
                         <Chat/>
                     </Route>
                     <Route path="/">
-                        <h1>Welcome</h1>
+                        <Home/>
                     </Route>
                 </Switch>
             

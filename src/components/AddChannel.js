@@ -35,18 +35,20 @@ export const AddChannel = () => {
                 <TextField
                     onChange={(e)=>setChannel(e.target.value)}
                     autoFocus
+                    color="secondary"
                     margin="dense"
                     id="name"
                     label="Channel Name"
+                    color="secondary"
                     type="email"
                     fullWidth
                 />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleClose} color="secondary">
                         Cancel
                     </Button>
-                    <Button onClick={addChannel} color="primary">
+                    <Button onClick={addChannel} color="secondary">
                         Create
                     </Button>
                     </DialogActions>

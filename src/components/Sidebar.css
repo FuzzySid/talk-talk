@@ -38,3 +38,22 @@
     font-weight: 400;
 }
 
+.sidebar__footer{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+}
+
+.sidebar__channels{
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.sidebar__footer > span{
+    cursor: pointer;
+    font-size: 14px;
+    color: darkgray;
+}

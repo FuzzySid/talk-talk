@@ -8,11 +8,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {db} from './../firebase.config';
+import Toast from './ui/Toast';
 
 export const AddChannel = () => {
     const [showModal,setShowModal]=useState(false)
     const [channel,setChannel]=useState('')
+    const [showToast,setShowToast]=useState(false)
     const addChannel=()=>{
+        setShowToast(true)
         if(channel){
             db.collection('Rooms').add({
                 name:channel
@@ -25,6 +28,7 @@ export const AddChannel = () => {
 
     return (
         <div className="addChannel">
+            { showToast && <Toast setShowToast={setShowToast} message={`Created nsew channel`} /> }
             <Button onClick={()=>setShowModal(true)} variant="contained"  color="secondary"><strong>Add Channel +</strong></Button>
             <Dialog  onClose={handleClose} open={showModal} aria-labelledby="simple-dialog-title" >
             <DialogTitle id="simple-dialog-title">Add a New Channel</DialogTitle>

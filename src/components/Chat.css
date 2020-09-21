@@ -22,11 +22,9 @@
 }
 
 .chat__headerRight__logo{
-    height: 100px;
+    height: 75px;
     object-fit: contain;
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    /* float: right; */
+
 }
 
 .chat__channelName{
